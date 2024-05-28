@@ -13,4 +13,7 @@ export default defineConfig({
         },
     },
     plugins: [react(), TanStackRouterVite()],
+    resolve: {
+        alias: [{ find: "@", replacement: "/src" }],
+    },
 });

@@ -2,8 +2,8 @@ import { FacebookOutlined } from "@ant-design/icons";
 import { createFileRoute } from "@tanstack/react-router";
 import type { FormProps } from "antd";
 import { Button, Form, Input } from "antd";
-import useAuth from "../hooks/useAuth";
-import { AccessToken } from "../api/api";
+import useAuth from "@/hooks/useAuth";
+import { AccessToken } from "@/api/api";
 
 export const Route = createFileRoute("/login")({
     component: Login,

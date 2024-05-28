@@ -24,6 +24,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                         colorPrimary: "#001d66",
                         borderRadius: 10,
                     },
+                    components: {
+                        Menu: {
+                            itemSelectedBg: "rgb(226, 232, 240)",
+                        },
+                    },
                 }}
             >
                 <RouterProvider router={router} />
