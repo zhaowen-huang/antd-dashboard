@@ -10,13 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
     "@tanstack/react-query": "^5.40.0",
+    "@tanstack/react-router": "^1.34.3",
     "antd": "^5.17.4",
+    "axios": "^1.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.5",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@tanstack/router-devtools": "^1.34.4",
+    "@tanstack/router-vite-plugin": "^1.34.1",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
