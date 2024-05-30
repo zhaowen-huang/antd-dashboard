@@ -2,6 +2,7 @@ import { Outlet, createFileRoute, redirect } from "@tanstack/react-router";
 import { isLoggedIn } from "@/hooks/useAuth";
 import Sidebar from "@/components/Common/Sidebar";
 import { Layout as AntdLayout, theme } from "antd";
+import DropDownMenu from "@/components/DropDown/DropDownMenu";
 
 export const Route = createFileRoute("/_layout")({
     component: Layout,
@@ -22,6 +23,7 @@ function Layout() {
     return (
         <AntdLayout>
             <AntdLayout className=" max-h-[100vh] h-[100vh] bg-white flex p-3">
+                <DropDownMenu />
                 <Sidebar />
                 <Content
                     style={{

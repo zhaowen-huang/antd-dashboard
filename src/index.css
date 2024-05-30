@@ -5,3 +5,10 @@
 .ant-menu-inline {
     border-inline-end: none !important;
 }
+
+@layer base {
+    svg {
+        display: inline;
+        vertical-align: baseline;
+    }
+}

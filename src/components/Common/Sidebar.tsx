@@ -7,7 +7,7 @@ import {
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Layout, Menu, theme } from "antd";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 
 const { Sider } = Layout;
 
@@ -18,12 +18,12 @@ const items: MenuProps["items"] = [
         label: "Dashboard",
     },
     {
-        key: `items`,
+        key: `/items`,
         icon: React.createElement(LaptopOutlined),
         label: "Items",
     },
     {
-        key: `settings`,
+        key: `/settings`,
         icon: React.createElement(SettingOutlined),
         label: "User Settings",
     },
@@ -33,9 +33,10 @@ const Sidebar: React.FC = () => {
     const {
         token: { colorBgContainer },
     } = theme.useToken();
+    const router = useRouterState();
     const navigate = useNavigate();
     const onClick: MenuProps["onClick"] = (e) => {
-        navigate({ to: `/${e.key}` });
+        navigate({ to: `${e.key}` });
     };
     return (
         <Sider
@@ -51,7 +52,7 @@ const Sidebar: React.FC = () => {
                 <Menu
                     className="bg-gray-100 rounded-xl"
                     mode="inline"
-                    defaultSelectedKeys={["1"]}
+                    defaultSelectedKeys={[router.location.pathname]}
                     defaultOpenKeys={["sub1"]}
                     items={items}
                     onClick={onClick}
