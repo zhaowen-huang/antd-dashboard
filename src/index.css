@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ant-menu-inline {
+    border-inline-end: none !important;
+}

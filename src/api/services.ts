@@ -1,8 +1,9 @@
+import { ItemCreate, ItemUpdate, ItemsServiceRsp } from "@/api/services.types";
 import axios, { AxiosError, AxiosResponse } from "axios";
 
 const token = localStorage.getItem("access_token") || "";
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;
-
+const API_VERSION = "/api/v1";
 axios.defaults.headers.common = { Authorization: `bearer ${token}` };
 const responseBody = <T>(response: AxiosResponse<T>) => response.data;
 const request = {
@@ -52,6 +53,20 @@ export const LoginService = {
         const form = new FormData();
         form.append("username", formData.username);
         form.append("password", formData.password);
-        return request.post<Token>("/api/v1/login/access-token", form);
+        return request.post<Token>(`${API_VERSION}/login/access-token`, form);
     },
+};
+export const ItemsService = {
+    readItems: (data: { limit?: number; skip?: number }) => {
+        const { limit = 100, skip = 0 } = data;
+        return request.get<ItemsServiceRsp>(
+            `${API_VERSION}/items/?skip=${skip}&limit=${limit}`
+        );
+    },
+    deleteItem: ({ id }: { id: string }) =>
+        request.delete(`${API_VERSION}/items/${id}`),
+    createItem: (item: ItemCreate) =>
+        request.post(`${API_VERSION}/items/`, item),
+    updateItem: (id: number, item: ItemUpdate) =>
+        request.put(`${API_VERSION}/items/${id}`, item),
 };
